@@ -62,7 +62,6 @@ export function Header() {
                 {link.name}
               </a>
             ))}
-            <a href="#contact" className={`font-medium text-sm transition-colors ${isScrolled ? 'text-slate-600' : 'text-slate-200'}`} data-testid="link-nav-contact">Contact</a>
           </nav>
 
           <button
@@ -89,14 +88,6 @@ export function Header() {
               {link.name}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="text-slate-600 font-medium py-3 px-4 rounded-lg transition-colors active:bg-slate-50"
-            onClick={() => setMobileMenuOpen(false)}
-            data-testid="link-mobile-nav-contact"
-          >
-            Contact
-          </a>
         </div>
       )}
     </header>
