@@ -95,9 +95,26 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+    -webkit-text-wrap: balance;
   }
   
   .glass-nav {
-    @apply bg-white/80 backdrop-blur-md border-b border-white/20 shadow-sm;
+    @apply bg-white/80 border-b border-white/20 shadow-sm;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .glass-nav {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+}
+
+*,
+*::before,
+*::after {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

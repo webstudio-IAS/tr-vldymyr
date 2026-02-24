@@ -35,19 +35,19 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-24 bg-slate-50">
+    <section id="services" className="py-16 sm:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <h2 className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">Our Services</h2>
-          <h3 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6" data-testid="text-services-title">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4 sm:mb-6" data-testid="text-services-title">
             Professional Transport Solutions
           </h3>
-          <p className="text-lg text-slate-600">
+          <p className="text-base sm:text-lg text-slate-600">
             WFITS offers comprehensive transport and moving solutions tailored to your specific needs. From a single item to a full business relocation, we handle it all.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -56,15 +56,15 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full border-none shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 bg-white" data-testid={`card-service-${index}`}>
+              <Card className="h-full border-none shadow-md bg-white" data-testid={`card-service-${index}`}>
                 <CardHeader>
-                  <div className={`w-14 h-14 rounded-2xl ${service.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className={`w-7 h-7 ${service.color}`} />
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl ${service.bg} flex items-center justify-center mb-4`}>
+                    <service.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${service.color}`} />
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardTitle className="text-lg sm:text-xl">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base text-slate-600">
+                  <CardDescription className="text-sm sm:text-base text-slate-600">
                     {service.description}
                   </CardDescription>
                 </CardContent>

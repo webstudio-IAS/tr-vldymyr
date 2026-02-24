@@ -28,18 +28,18 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl z-0" />
+    <section id="testimonials" className="py-16 sm:py-24 bg-white relative overflow-hidden">
+      <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl z-0 hidden sm:block" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <h2 className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">Client Stories</h2>
-          <h3 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6" data-testid="text-testimonials-title">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4 sm:mb-6" data-testid="text-testimonials-title">
             What Our Clients Say
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -58,17 +58,18 @@ export function Testimonials() {
                       <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-slate-600 mb-8 italic">"{testimonial.content}"</p>
+                  <p className="text-sm sm:text-base text-slate-600 mb-6 sm:mb-8 italic leading-relaxed">"{testimonial.content}"</p>
                   
                   <div className="flex items-center">
                     <img 
                       src={testimonial.image} 
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover mr-4"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 sm:mr-4"
+                      loading="lazy"
                     />
                     <div>
-                      <h4 className="font-bold text-slate-900">{testimonial.name}</h4>
-                      <p className="text-sm text-slate-500">{testimonial.role}</p>
+                      <h4 className="font-bold text-slate-900 text-sm sm:text-base">{testimonial.name}</h4>
+                      <p className="text-xs sm:text-sm text-slate-500">{testimonial.role}</p>
                     </div>
                   </div>
                 </CardContent>

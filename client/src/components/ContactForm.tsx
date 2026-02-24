@@ -34,10 +34,10 @@ export function ContactForm() {
 
   if (mutation.isSuccess) {
     return (
-      <div className="text-center py-12" data-testid="text-contact-success">
-        <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-        <h4 className="text-xl font-bold text-slate-900 mb-2">Message Sent Successfully!</h4>
-        <p className="text-slate-600 mb-6">Our team will get back to you shortly.</p>
+      <div className="text-center py-8 sm:py-12" data-testid="text-contact-success">
+        <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-green-500 mx-auto mb-4" />
+        <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">Message Sent Successfully!</h4>
+        <p className="text-sm sm:text-base text-slate-600 mb-6">Our team will get back to you shortly.</p>
         <Button
           variant="outline"
           onClick={() => mutation.reset()}
@@ -51,8 +51,8 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <FormField
             control={form.control}
             name="name"
@@ -62,6 +62,7 @@ export function ContactForm() {
                 <FormControl>
                   <Input 
                     placeholder="John Doe" 
+                    className="w-full"
                     data-testid="input-name"
                     {...field} 
                   />
@@ -80,6 +81,7 @@ export function ContactForm() {
                   <Input 
                     placeholder="john@example.com" 
                     type="email"
+                    className="w-full"
                     data-testid="input-email"
                     {...field} 
                   />
@@ -99,6 +101,7 @@ export function ContactForm() {
               <FormControl>
                 <Input 
                   placeholder="+49 123 456789" 
+                  className="w-full"
                   data-testid="input-phone"
                   {...field} 
                 />
@@ -117,7 +120,7 @@ export function ContactForm() {
               <FormControl>
                 <Textarea 
                   placeholder="Tell us about your transport needs (from/to, date, items)..." 
-                  className="min-h-[120px] resize-none" 
+                  className="w-full min-h-[100px] sm:min-h-[120px] resize-none" 
                   data-testid="input-message"
                   {...field} 
                 />
