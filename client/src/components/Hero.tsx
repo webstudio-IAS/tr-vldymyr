@@ -28,7 +28,7 @@ export function Hero() {
             </div>
             
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-white leading-tight sm:leading-[1.1] mb-4 sm:mb-6" data-testid="text-hero-title">
-              Reliable Transport, <span className="text-primary-foreground/90 underline decoration-primary underline-offset-4 sm:underline-offset-8">Delivered.</span>
+              Reliable Transport, <span className="text-white underline decoration-primary underline-offset-4 sm:underline-offset-8">Delivered.</span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-description">
