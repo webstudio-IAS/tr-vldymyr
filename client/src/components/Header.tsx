@@ -62,15 +62,11 @@ export function Header() {
                 {link.name}
               </a>
             ))}
-            <span className={`transition-colors ${isScrolled ? 'text-slate-600 dark:text-slate-300' : 'text-slate-200'}`}>
-              <ThemeToggle />
-            </span>
+            <ThemeToggle className={isScrolled ? 'text-slate-600 dark:text-slate-300' : 'text-white'} />
           </nav>
 
           <div className="flex items-center gap-2 md:hidden">
-            <span className={`transition-colors ${isScrolled || mobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-white'}`}>
-              <ThemeToggle />
-            </span>
+            <ThemeToggle className={isScrolled || mobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-white'} />
             <button
               className={`p-2 rounded-md transition-colors ${isScrolled || mobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-white'}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
