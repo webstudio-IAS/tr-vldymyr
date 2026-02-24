@@ -7,7 +7,7 @@ export function Hero() {
     <section id="home" className="relative min-h-screen sm:min-h-[90vh] flex items-center pt-16 sm:pt-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
+          src="/images/hero-truck.jpg"
           alt="WFITS Transport Services"
           className="w-full h-full object-cover object-center"
           loading="eager"
