@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Truck, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
@@ -41,9 +41,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center gap-4">
           <a href="#home" className="flex items-center" data-testid="link-logo">
-            <div className="bg-primary text-white p-2 rounded-lg mr-2 sm:mr-3 shadow-lg shadow-primary/25">
-              <Truck className="w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
+            <img src="/images/wfits-logo.png" alt="WFITS Logo" className="h-9 sm:h-11 w-auto mr-2 sm:mr-3" />
             <span className={`font-display font-bold text-xl sm:text-2xl tracking-tight transition-colors ${isScrolled || mobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-white'}`}>
               WF<span className="text-primary">ITS</span>
             </span>

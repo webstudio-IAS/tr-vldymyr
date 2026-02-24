@@ -1,4 +1,4 @@
-import { Truck, Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,9 +8,7 @@ export function Footer() {
           
           <div className="sm:col-span-2 lg:col-span-1">
             <a href="#home" className="flex items-center mb-6" data-testid="link-footer-logo">
-              <div className="bg-primary text-white p-2 rounded-lg mr-3">
-                <Truck className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
+              <img src="/images/wfits-logo.png" alt="WFITS Logo" className="h-9 sm:h-11 w-auto mr-3" />
               <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-white">
                 WF<span className="text-primary">ITS</span>
               </span>
