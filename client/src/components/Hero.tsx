@@ -12,11 +12,11 @@ export function Hero() {
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/40" />
+        <div className="absolute inset-0 bg-slate-900/70" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-0">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -31,11 +31,11 @@ export function Hero() {
               Reliable Transport, <span className="text-primary-foreground/90 underline decoration-primary underline-offset-4 sm:underline-offset-8">Delivered.</span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 sm:mb-10 max-w-2xl leading-relaxed" data-testid="text-hero-description">
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-description">
               WFITS provides professional transport and moving services backed by years of hands-on experience. Whether it's a local delivery or a long-distance haul, your goods are in safe hands.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
               <Button size="lg" asChild className="w-full sm:w-auto">
                 <a href="#contact" data-testid="button-hero-quote">
                   Get Your Free Quote
@@ -49,16 +49,16 @@ export function Hero() {
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-white/10">
-              <div className="flex items-center text-slate-300">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-white/10">
+              <div className="flex items-center justify-center text-slate-300">
                 <ShieldCheck className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
                 <span className="text-sm font-medium">Fully Licensed & Insured</span>
               </div>
-              <div className="flex items-center text-slate-300">
+              <div className="flex items-center justify-center text-slate-300">
                 <Clock className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
                 <span className="text-sm font-medium">On-Time Guarantee</span>
               </div>
-              <div className="flex items-center text-slate-300 sm:col-span-2 md:col-span-1">
+              <div className="flex items-center justify-center text-slate-300">
                 <Star className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
                 <span className="text-sm font-medium">No Hidden Fees</span>
               </div>
