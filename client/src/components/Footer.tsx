@@ -55,6 +55,7 @@ export function Footer() {
 
         <div className="pt-6 sm:pt-8 border-t border-slate-800 text-center text-slate-500 text-xs sm:text-sm" data-testid="text-footer-copyright">
           <p>&copy; {new Date().getFullYear()} WFITS Transport Services. All rights reserved.</p>
+          <p className="mt-2 text-slate-600 text-[11px]">Built by webstudio-ias</p>
         </div>
       </div>
     </footer>
