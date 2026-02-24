@@ -1,0 +1,95 @@
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Truck, Menu, X } from "lucide-react";
+
+export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "Why Us", href: "#why-us" },
+    { name: "Testimonials", href: "#testimonials" },
+  ];
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled || mobileMenuOpen ? "glass-nav py-3" : "bg-transparent py-5"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <a href="#home" className="flex items-center group">
+            <div className="bg-primary text-white p-2 rounded-lg mr-3 group-hover:scale-105 transition-transform shadow-lg shadow-primary/25">
+              <Truck className="w-6 h-6" />
+            </div>
+            <span className={`font-display font-bold text-2xl tracking-tight transition-colors ${isScrolled ? 'text-slate-900' : 'text-slate-900 lg:text-white'}`}>
+              Swift<span className="text-primary">Moves</span>
+            </span>
+          </a>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`font-medium text-sm hover:text-primary transition-colors ${
+                  isScrolled ? 'text-slate-600' : 'text-slate-600 lg:text-slate-200 lg:hover:text-white'
+                }`}
+              >
+                {link.name}
+              </a>
+            ))}
+            <Button 
+              asChild 
+              className="rounded-full px-6 font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+            >
+              <a href="#contact">Get a Free Quote</a>
+            </Button>
+          </nav>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className={`md:hidden p-2 rounded-md ${isScrolled ? 'text-slate-900' : 'text-slate-900'}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Nav */}
+      {mobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 shadow-xl py-4 px-4 flex flex-col space-y-4 animate-in slide-in-from-top-2">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-slate-600 font-medium py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
+          <div className="pt-4 border-t border-slate-100">
+            <Button asChild className="w-full rounded-xl" size="lg">
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Get a Free Quote</a>
+            </Button>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
