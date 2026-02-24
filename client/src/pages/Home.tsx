@@ -15,18 +15,18 @@ export default function Home() {
         <Hero />
         <Services />
         
-        {/* Simple CTA Banner */}
-        <section className="bg-primary py-16 relative overflow-hidden">
+        <section id="why-us" className="bg-primary py-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-              Need to move quickly? We have trucks available today.
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6" data-testid="text-cta-title">
+              Need a reliable transport partner? Contact us today.
             </h2>
             <a 
               href="#contact" 
               className="inline-block bg-white text-primary font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+              data-testid="link-cta-contact"
             >
-              Call 1-800-MOVE-NOW
+              Get a Free Quote
             </a>
           </div>
         </section>

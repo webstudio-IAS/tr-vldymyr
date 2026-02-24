@@ -29,17 +29,15 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo */}
-          <a href="#home" className="flex items-center group">
+          <a href="#home" className="flex items-center group" data-testid="link-logo">
             <div className="bg-primary text-white p-2 rounded-lg mr-3 group-hover:scale-105 transition-transform shadow-lg shadow-primary/25">
               <Truck className="w-6 h-6" />
             </div>
             <span className={`font-display font-bold text-2xl tracking-tight transition-colors ${isScrolled ? 'text-slate-900' : 'text-slate-900 lg:text-white'}`}>
-              Swift<span className="text-primary">Moves</span>
+              WF<span className="text-primary">ITS</span>
             </span>
           </a>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
@@ -48,6 +46,7 @@ export function Header() {
                 className={`font-medium text-sm hover:text-primary transition-colors ${
                   isScrolled ? 'text-slate-600' : 'text-slate-600 lg:text-slate-200 lg:hover:text-white'
                 }`}
+                data-testid={`link-nav-${link.name.toLowerCase().replace(' ', '-')}`}
               >
                 {link.name}
               </a>
@@ -56,21 +55,20 @@ export function Header() {
               asChild 
               className="rounded-full px-6 font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              <a href="#contact">Get a Free Quote</a>
+              <a href="#contact" data-testid="link-get-quote">Get a Free Quote</a>
             </Button>
           </nav>
 
-          {/* Mobile Menu Toggle */}
           <button
             className={`md:hidden p-2 rounded-md ${isScrolled ? 'text-slate-900' : 'text-slate-900'}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            data-testid="button-mobile-menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 shadow-xl py-4 px-4 flex flex-col space-y-4 animate-in slide-in-from-top-2">
           {navLinks.map((link) => (

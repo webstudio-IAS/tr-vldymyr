@@ -4,39 +4,38 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    name: "Sarah Jenkins",
+    name: "Thomas Bergmann",
     role: "Homeowner",
-    content: "Absolutely phenomenal service. They arrived exactly on time, packed everything with extreme care, and unloaded at our new house faster than I thought possible. Highly recommended!",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150"
-  },
-  {
-    name: "Michael Chen",
-    role: "Business Owner",
-    content: "We hired SwiftMoves for our office relocation. Their commercial team minimized our downtime and handled all our sensitive equipment perfectly. True professionals.",
+    content: "Outstanding service from start to finish. The WFITS team arrived on time, handled our furniture with great care, and had everything set up in our new home by the afternoon. Highly recommended!",
     rating: 5,
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150"
   },
   {
-    name: "Emily Rodriguez",
-    role: "Cross-Country Move",
-    content: "Moving from NY to CA was incredibly stressful until I found these guys. Clear communication, transparent pricing, and all my belongings arrived perfectly intact.",
+    name: "Anna Schreiber",
+    role: "Business Owner",
+    content: "We needed to relocate our office with minimal disruption. WFITS managed the entire process professionally — from packing sensitive equipment to setting everything up at the new location. True experts.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=150&h=150"
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150"
+  },
+  {
+    name: "Marcus Weber",
+    role: "Long-Distance Move",
+    content: "I was worried about shipping my belongings across the country, but WFITS made the whole process smooth and stress-free. Clear communication, fair pricing, and everything arrived in perfect condition.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150"
   }
 ];
 
 export function Testimonials() {
   return (
     <section id="testimonials" className="py-24 bg-white relative overflow-hidden">
-      {/* Decorative background element */}
       <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl z-0" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">Client Stories</h2>
-          <h3 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6">
-            Don't Just Take Our Word For It
+          <h3 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6" data-testid="text-testimonials-title">
+            What Our Clients Say
           </h3>
         </div>
 
@@ -49,7 +48,7 @@ export function Testimonials() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full border border-slate-100 shadow-lg shadow-slate-200/50 relative pt-8">
+              <Card className="h-full border border-slate-100 shadow-lg shadow-slate-200/50 relative pt-8" data-testid={`card-testimonial-${index}`}>
                 <div className="absolute -top-5 left-6 bg-primary text-white p-3 rounded-full shadow-md">
                   <Quote className="w-5 h-5" />
                 </div>
