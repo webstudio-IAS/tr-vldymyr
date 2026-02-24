@@ -28,9 +28,9 @@ export function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-4">
           <a href="#home" className="flex items-center group" data-testid="link-logo">
-            <div className="bg-primary text-white p-2 rounded-lg mr-3 group-hover:scale-105 transition-transform shadow-lg shadow-primary/25">
+            <div className="bg-primary text-white p-2 rounded-lg mr-3 transition-transform shadow-lg shadow-primary/25">
               <Truck className="w-6 h-6" />
             </div>
             <span className={`font-display font-bold text-2xl tracking-tight transition-colors ${isScrolled ? 'text-slate-900' : 'text-slate-900 lg:text-white'}`}>
@@ -43,18 +43,15 @@ export function Header() {
               <a
                 key={link.name}
                 href={link.href}
-                className={`font-medium text-sm hover:text-primary transition-colors ${
-                  isScrolled ? 'text-slate-600' : 'text-slate-600 lg:text-slate-200 lg:hover:text-white'
+                className={`font-medium text-sm transition-colors ${
+                  isScrolled ? 'text-slate-600' : 'text-slate-600 lg:text-slate-200'
                 }`}
                 data-testid={`link-nav-${link.name.toLowerCase().replace(' ', '-')}`}
               >
                 {link.name}
               </a>
             ))}
-            <Button 
-              asChild 
-              className="rounded-full px-6 font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
-            >
+            <Button asChild>
               <a href="#contact" data-testid="link-get-quote">Get a Free Quote</a>
             </Button>
           </nav>
@@ -75,15 +72,16 @@ export function Header() {
             <a
               key={link.name}
               href={link.href}
-              className="text-slate-600 font-medium py-2 px-4 hover:bg-slate-50 rounded-lg transition-colors"
+              className="text-slate-600 font-medium py-2 px-4 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(false)}
+              data-testid={`link-mobile-nav-${link.name.toLowerCase().replace(' ', '-')}`}
             >
               {link.name}
             </a>
           ))}
           <div className="pt-4 border-t border-slate-100">
-            <Button asChild className="w-full rounded-xl" size="lg">
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Get a Free Quote</a>
+            <Button asChild className="w-full" size="lg">
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-get-quote">Get a Free Quote</a>
             </Button>
           </div>
         </div>

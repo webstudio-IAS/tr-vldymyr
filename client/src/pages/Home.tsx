@@ -23,7 +23,7 @@ export default function Home() {
             </h2>
             <a 
               href="#contact" 
-              className="inline-block bg-white text-primary font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+              className="inline-block bg-white text-primary font-bold px-8 py-4 rounded-full shadow-lg transition-all"
               data-testid="link-cta-contact"
             >
               Get a Free Quote

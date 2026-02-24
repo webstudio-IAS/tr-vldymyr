@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Loader2, Send } from "lucide-react";
+import { Loader2, Send, CheckCircle } from "lucide-react";
 import { z } from "zod";
 
 type FormData = z.infer<typeof insertMessageSchema>;
@@ -32,6 +32,23 @@ export function ContactForm() {
     });
   };
 
+  if (mutation.isSuccess) {
+    return (
+      <div className="text-center py-12" data-testid="text-contact-success">
+        <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+        <h4 className="text-xl font-bold text-slate-900 mb-2">Message Sent Successfully!</h4>
+        <p className="text-slate-600 mb-6">Our team will get back to you shortly.</p>
+        <Button
+          variant="outline"
+          onClick={() => mutation.reset()}
+          data-testid="button-send-another"
+        >
+          Send Another Message
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -45,7 +62,7 @@ export function ContactForm() {
                 <FormControl>
                   <Input 
                     placeholder="John Doe" 
-                    className="bg-white/50 border-slate-200 focus:border-primary focus:ring-primary/20 h-12 rounded-xl" 
+                    data-testid="input-name"
                     {...field} 
                   />
                 </FormControl>
@@ -63,7 +80,7 @@ export function ContactForm() {
                   <Input 
                     placeholder="john@example.com" 
                     type="email"
-                    className="bg-white/50 border-slate-200 focus:border-primary focus:ring-primary/20 h-12 rounded-xl" 
+                    data-testid="input-email"
                     {...field} 
                   />
                 </FormControl>
@@ -81,8 +98,8 @@ export function ContactForm() {
               <FormLabel className="text-slate-700">Phone Number</FormLabel>
               <FormControl>
                 <Input 
-                  placeholder="(555) 123-4567" 
-                  className="bg-white/50 border-slate-200 focus:border-primary focus:ring-primary/20 h-12 rounded-xl" 
+                  placeholder="+49 123 456789" 
+                  data-testid="input-phone"
                   {...field} 
                 />
               </FormControl>
@@ -96,11 +113,12 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-slate-700">Move Details</FormLabel>
+              <FormLabel className="text-slate-700">Transport Details</FormLabel>
               <FormControl>
                 <Textarea 
-                  placeholder="Tell us about your move (from/to, date, size of home)..." 
-                  className="min-h-[120px] bg-white/50 border-slate-200 focus:border-primary focus:ring-primary/20 rounded-xl resize-none" 
+                  placeholder="Tell us about your transport needs (from/to, date, items)..." 
+                  className="min-h-[120px] resize-none" 
+                  data-testid="input-message"
                   {...field} 
                 />
               </FormControl>
@@ -112,8 +130,9 @@ export function ContactForm() {
         <Button 
           type="submit" 
           size="lg" 
-          className="w-full h-14 rounded-xl text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+          className="w-full"
           disabled={mutation.isPending}
+          data-testid="button-submit"
         >
           {mutation.isPending ? (
             <>

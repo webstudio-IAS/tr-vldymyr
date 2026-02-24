@@ -26,7 +26,7 @@ export function Hero() {
               Years of experience in professional transport
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-white leading-[1.1] mb-6 text-balance">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-white leading-[1.1] mb-6 text-balance" data-testid="text-hero-title">
               Reliable Transport, <span className="text-primary-foreground/90 underline decoration-primary underline-offset-8">Delivered.</span>
             </h1>
             
@@ -35,13 +35,13 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button size="lg" className="rounded-full text-base px-8 h-14 shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-1 transition-all" asChild>
+              <Button size="lg" asChild>
                 <a href="#contact" data-testid="button-hero-quote">
                   Get Your Free Quote
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full text-base px-8 h-14 bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm transition-all" asChild>
+              <Button size="lg" variant="outline" className="bg-white/5 border-white/20 text-white backdrop-blur-sm" asChild>
                 <a href="#services" data-testid="button-hero-services">
                   Explore Services
                 </a>
