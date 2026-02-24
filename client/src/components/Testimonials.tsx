@@ -28,13 +28,13 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section id="testimonials" className="py-16 sm:py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
       <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl z-0 hidden sm:block" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <h2 className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">Client Stories</h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4 sm:mb-6" data-testid="text-testimonials-title">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4 sm:mb-6" data-testid="text-testimonials-title">
             What Our Clients Say
           </h3>
         </div>
@@ -48,7 +48,7 @@ export function Testimonials() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full border border-slate-100 shadow-lg shadow-slate-200/50 relative pt-8" data-testid={`card-testimonial-${index}`}>
+              <Card className="h-full border border-slate-100 dark:border-slate-800 shadow-lg shadow-slate-200/50 dark:shadow-none relative pt-8 dark:bg-slate-900" data-testid={`card-testimonial-${index}`}>
                 <div className="absolute -top-5 left-6 bg-primary text-white p-3 rounded-full shadow-md">
                   <Quote className="w-5 h-5" />
                 </div>
@@ -58,7 +58,7 @@ export function Testimonials() {
                       <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-sm sm:text-base text-slate-600 mb-6 sm:mb-8 italic leading-relaxed">"{testimonial.content}"</p>
+                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 sm:mb-8 italic leading-relaxed">"{testimonial.content}"</p>
                   
                   <div className="flex items-center">
                     <img 
@@ -68,8 +68,8 @@ export function Testimonials() {
                       loading="lazy"
                     />
                     <div>
-                      <h4 className="font-bold text-slate-900 text-sm sm:text-base">{testimonial.name}</h4>
-                      <p className="text-xs sm:text-sm text-slate-500">{testimonial.role}</p>
+                      <h4 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">{testimonial.name}</h4>
+                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">{testimonial.role}</p>
                     </div>
                   </div>
                 </CardContent>

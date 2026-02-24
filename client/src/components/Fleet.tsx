@@ -30,14 +30,14 @@ const fleetItems = [
 
 export function Fleet() {
   return (
-    <section id="fleet" className="py-16 sm:py-24 bg-white">
+    <section id="fleet" className="py-16 sm:py-24 bg-white dark:bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <h2 className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">Our Fleet & Team</h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4 sm:mb-6" data-testid="text-fleet-title">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4 sm:mb-6" data-testid="text-fleet-title">
             Built for Every Job
           </h3>
-          <p className="text-base sm:text-lg text-slate-600">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
             From local deliveries to long-distance hauls, our well-maintained fleet and experienced team are ready to serve you.
           </p>
         </div>
@@ -72,7 +72,7 @@ export function Fleet() {
         </div>
 
         <div className="mt-8 sm:mt-12 text-center">
-          <p className="text-slate-500 text-sm flex items-center justify-center gap-2">
+          <p className="text-slate-500 dark:text-slate-400 text-sm flex items-center justify-center gap-2">
             <Camera className="w-4 h-4" />
             Replace these images with real photos of your trucks and team
           </p>

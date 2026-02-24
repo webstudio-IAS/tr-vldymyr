@@ -36,8 +36,8 @@ export function ContactForm() {
     return (
       <div className="text-center py-8 sm:py-12" data-testid="text-contact-success">
         <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-green-500 mx-auto mb-4" />
-        <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">Message Sent Successfully!</h4>
-        <p className="text-sm sm:text-base text-slate-600 mb-6">Our team will get back to you shortly.</p>
+        <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">Message Sent Successfully!</h4>
+        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6">Our team will get back to you shortly.</p>
         <Button
           variant="outline"
           onClick={() => mutation.reset()}
@@ -58,7 +58,7 @@ export function ContactForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-slate-700">Full Name</FormLabel>
+                <FormLabel className="text-slate-700 dark:text-slate-300">Full Name</FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="John Doe" 
@@ -76,7 +76,7 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-slate-700">Email Address</FormLabel>
+                <FormLabel className="text-slate-700 dark:text-slate-300">Email Address</FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="john@example.com" 
@@ -97,7 +97,7 @@ export function ContactForm() {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-slate-700">Phone Number</FormLabel>
+              <FormLabel className="text-slate-700 dark:text-slate-300">Phone Number</FormLabel>
               <FormControl>
                 <Input 
                   placeholder="+49 123 456789" 
@@ -116,7 +116,7 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-slate-700">Transport Details</FormLabel>
+              <FormLabel className="text-slate-700 dark:text-slate-300">Transport Details</FormLabel>
               <FormControl>
                 <Textarea 
                   placeholder="Tell us about your transport needs (from/to, date, items)..." 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Truck, Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,7 +44,7 @@ export function Header() {
             <div className="bg-primary text-white p-2 rounded-lg mr-2 sm:mr-3 shadow-lg shadow-primary/25">
               <Truck className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <span className={`font-display font-bold text-xl sm:text-2xl tracking-tight transition-colors ${isScrolled || mobileMenuOpen ? 'text-slate-900' : 'text-white'}`}>
+            <span className={`font-display font-bold text-xl sm:text-2xl tracking-tight transition-colors ${isScrolled || mobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-white'}`}>
               WF<span className="text-primary">ITS</span>
             </span>
           </a>
@@ -55,33 +55,41 @@ export function Header() {
                 key={link.name}
                 href={link.href}
                 className={`font-medium text-sm transition-colors ${
-                  isScrolled ? 'text-slate-600' : 'text-slate-200'
+                  isScrolled ? 'text-slate-600 dark:text-slate-300' : 'text-slate-200'
                 }`}
                 data-testid={`link-nav-${link.name.toLowerCase().replace(' ', '-')}`}
               >
                 {link.name}
               </a>
             ))}
+            <span className={`transition-colors ${isScrolled ? 'text-slate-600 dark:text-slate-300' : 'text-slate-200'}`}>
+              <ThemeToggle />
+            </span>
           </nav>
 
-          <button
-            className={`md:hidden p-2 rounded-md transition-colors ${isScrolled || mobileMenuOpen ? 'text-slate-900' : 'text-white'}`}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            data-testid="button-mobile-menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <span className={`transition-colors ${isScrolled || mobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-white'}`}>
+              <ThemeToggle />
+            </span>
+            <button
+              className={`p-2 rounded-md transition-colors ${isScrolled || mobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-white'}`}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              data-testid="button-mobile-menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 shadow-xl py-4 px-4 flex flex-col space-y-2 max-h-[calc(100vh-64px)] overflow-y-auto">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-xl py-4 px-4 flex flex-col space-y-2 max-h-[calc(100vh-64px)] overflow-y-auto">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-slate-600 font-medium py-3 px-4 rounded-lg transition-colors active:bg-slate-50"
+              className="text-slate-600 dark:text-slate-300 font-medium py-3 px-4 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(false)}
               data-testid={`link-mobile-nav-${link.name.toLowerCase().replace(' ', '-')}`}
             >
