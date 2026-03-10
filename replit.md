@@ -19,7 +19,7 @@ Preferred communication style: Simple, everyday language.
 - **Forms**: react-hook-form with Zod validation via @hookform/resolvers
 - **Data Fetching**: TanStack React Query for server state management
 - **Icons**: Lucide React
-- **Fonts**: DM Sans (body) and Montserrat (display headings) via Google Fonts
+- **Fonts**: DM Sans (body) and Raleway (display headings) via Google Fonts
 
 ### Backend
 - **Framework**: Express 5 running on Node.js with TypeScript (executed via tsx)
@@ -61,4 +61,14 @@ Preferred communication style: Simple, everyday language.
 - **PostgreSQL** — Primary database, required via `DATABASE_URL` environment variable. Used with `connect-pg-simple` for potential session storage.
 - **Unsplash** — Hero and testimonial images are loaded from Unsplash CDN URLs (no API key needed, just direct image URLs)
 - **Google Fonts** — DM Sans, Montserrat, Fira Code, Geist Mono, and Architects Daughter fonts loaded via CDN
-- **Replit Plugins** — `@replit/vite-plugin-runtime-error-modal`, `@replit/vite-plugin-cartographer`, and `@replit/vite-plugin-dev-banner` are used in development when running on Replit
+- **Replit Plugins** — `@replit/vite-plugin-runtime-error-modal`, `@replit/vite-plugin-cartographer`, and `@replit/vite-plugin-dev-banner` are used in development when running on Replit (conditionally loaded only when `REPL_ID` env var is present)
+
+## Vercel Deployment
+
+The project is configured for deployment on Vercel alongside the existing Replit setup:
+
+- **`vercel.json`** — Configures the Vite build command, output directory (`dist/public`), and URL rewrites
+- **`api/messages.ts`** — Vercel serverless function that handles `POST /api/messages` (contact form submissions). Uses Drizzle ORM + pg directly (self-contained, no path alias dependencies)
+- **`vite.config.ts`** — Replit-specific plugins are conditionally loaded only when `REPL_ID` is set, so builds work cleanly on Vercel
+- **Environment Variables on Vercel**: `DATABASE_URL` must be set in Vercel project settings to connect to a PostgreSQL database
+- **SPA Routing**: A catch-all rewrite in `vercel.json` sends all non-API routes to `index.html` for client-side routing
